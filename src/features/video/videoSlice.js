@@ -1,10 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import getVideo from "./videoAPI";
 
-export const fetchVideo = createAsyncThunk("video/fetchVideo", async (id) => {
-  const video = await getVideo(id);
-  return video;
-});
+export const fetchVideo = createAsyncThunk(
+  "video/fetchVideo",
+  async ({ id }) => {
+    const video = await getVideo(id);
+    return video;
+  }
+);
 
 export const likeAsync = createAsyncThunk(
   "video/fetchLike",
