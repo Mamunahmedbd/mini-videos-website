@@ -1,19 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import getVideo from "./videoAPI";
 
-export const fetchVideo = createAsyncThunk(
-  "video/fetchVideo",
-  async ({ id }) => {
-    const video = await getVideo(id);
-    return video;
-  }
-);
+export const fetchVideo = createAsyncThunk("video/fetchVideo", async (id) => {
+  const video = await getVideo(id);
+  return video;
+});
 
 export const likeAsync = createAsyncThunk(
   "video/fetchLike",
   async ({ id, countLike }) => {
     const res = await fetch(
-      `https://mini-video-website-react-redux.herokuapp.com/api/videos/${id}`,
+      `https://mini-video-website-react-redux.herokuapp.com/videos/${id}`,
       {
         method: "PATCH",
         body: JSON.stringify({
@@ -32,7 +29,7 @@ export const unLikeAsync = createAsyncThunk(
   "video/fetchUnLike",
   async ({ id, countUnLike }) => {
     const res = await fetch(
-      `https://mini-video-website-react-redux.herokuapp.com/api/videos/${id}`,
+      `https://mini-video-website-react-redux.herokuapp.com/videos/${id}`,
       {
         method: "PATCH",
         body: JSON.stringify({
