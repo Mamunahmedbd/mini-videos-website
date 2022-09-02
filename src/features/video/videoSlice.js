@@ -10,7 +10,7 @@ export const likeAsync = createAsyncThunk(
   "video/fetchLike",
   async ({ id, countLike }) => {
     const res = await fetch(
-      `https://mini-video-website-react-redux.herokuapp.com/videos/${id}`,
+      `https://mamun-json-server.herokuapp.com/videos/${id}`,
       {
         method: "PATCH",
         body: JSON.stringify({
@@ -29,7 +29,7 @@ export const unLikeAsync = createAsyncThunk(
   "video/fetchUnLike",
   async ({ id, countUnLike }) => {
     const res = await fetch(
-      `https://mini-video-website-react-redux.herokuapp.com/videos/${id}`,
+      `https://mamun-json-server.herokuapp.com/videos/${id}`,
       {
         method: "PATCH",
         body: JSON.stringify({
