@@ -11,7 +11,7 @@ const getVidoes = async (tags, search, author) => {
   if (search !== "") {
     quaryString += `q=${search}`;
   }
-  const res = await axios.get(`/videos?${quaryString}`);
+  const res = await axios.get(`/videos/?${quaryString}`);
   return res.data;
 };
 
