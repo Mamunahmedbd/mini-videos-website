@@ -9,15 +9,18 @@ export const fetchVideo = createAsyncThunk("video/fetchVideo", async (id) => {
 export const likeAsync = createAsyncThunk(
   "video/fetchLike",
   async ({ id, countLike }) => {
-    const res = await fetch(`http://localhost:9000/videos/${id}`, {
-      method: "PATCH",
-      body: JSON.stringify({
-        likes: countLike,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
+    const res = await fetch(
+      `https://mini-video-website-react-redux.herokuapp.com/api/videos/${id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({
+          likes: countLike,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    );
     const todo = await res.json();
     return todo;
   }
@@ -25,15 +28,18 @@ export const likeAsync = createAsyncThunk(
 export const unLikeAsync = createAsyncThunk(
   "video/fetchUnLike",
   async ({ id, countUnLike }) => {
-    const res = await fetch(`http://localhost:9000/videos/${id}`, {
-      method: "PATCH",
-      body: JSON.stringify({
-        unlikes: countUnLike,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
+    const res = await fetch(
+      `https://mini-video-website-react-redux.herokuapp.com/api/videos/${id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({
+          unlikes: countUnLike,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    );
     const todo = await res.json();
     return todo;
   }
